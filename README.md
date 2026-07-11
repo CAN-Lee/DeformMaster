@@ -13,7 +13,7 @@
 - [x] **[2026/07/07]** Demo data and checkpoints
 - [x] **[2026/07/07]** Interactive playground demo
 - [x] **[2026/07/11]** Data preprocessing code
-- [ ] Full training code
+- [ ] Full training code and configs
 - [ ] Downstream embodied application
 
 ## 1. Environment
