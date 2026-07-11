@@ -1,0 +1,67 @@
+# Python/cache
+__pycache__/
+*.py[cod]
+*.so
+*.o
+*.a
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+.env
+
+# Downloaded playground/training assets
+/data/
+/outputs/
+/gaussian_output/
+/release_assets/
+/checkpoints/
+/datasets/
+/playground_assets.zip
+/MANIFEST.txt
+
+# Generated experiment artifacts
+/results/
+/ablation_results/
+/baseline_outputs/
+/playground_recording/
+/gaussian_output_dynamic*/
+/mpm_inference/
+wandb/
+runs/
+*.log
+
+# Heavy model/data files
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.npy
+*.npz
+*.ply
+*.mp4
+
+# Local third-party/data-processing downloads
+data_process/TRELLIS/
+data_process/third_party/
+data_process/groundedSAM_checkpoints/*.pth
+data_process/groundedSAM_checkpoints/*.pt
+data_process/models/weights/
+data_process/mono_extract_pkg/checkpoints/*
+!data_process/mono_extract_pkg/checkpoints/.gitkeep
+data_process/mono_extract_pkg/da3_model/
+data_process/mono_extract_pkg/moge_model/
+
+# OS/editors
+.DS_Store
+.vscode/
+.idea/
+.claude/
+.codex/
+.agents/
+.cursor/
+# Local training configurations
+/configs/*.yaml

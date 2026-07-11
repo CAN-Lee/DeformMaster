@@ -1,0 +1,9 @@
+[submodule "data_process/mono_extract_pkg/third_party/moge2"]
+	path = data_process/mono_extract_pkg/third_party/moge2
+	url = https://github.com/microsoft/MoGe.git
+[submodule "data_process/mono_extract_pkg/third_party/vggt-omega"]
+	path = data_process/mono_extract_pkg/third_party/vggt-omega
+	url = https://github.com/facebookresearch/vggt-omega.git
+[submodule "data_process/mono_extract_pkg/third_party/depth-anything-3"]
+	path = data_process/mono_extract_pkg/third_party/depth-anything-3
+	url = https://github.com/ByteDance-Seed/depth-anything-3.git
