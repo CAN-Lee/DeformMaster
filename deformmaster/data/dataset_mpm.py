@@ -213,7 +213,7 @@ class DeformMasterDataset(Dataset):
         gaussian_output_dir = getattr(self.cfg.data, 'gaussian_output_dir', None)
         if gaussian_output_dir:
             try:
-                from scripts_training_eval.dynamics.gaussian_filling import get_gaussian_ply_path, fill_particles_gaussian
+                from .gaussian_filling import get_gaussian_ply_path, fill_particles_gaussian
                 ply_path = get_gaussian_ply_path(gaussian_output_dir, scene_id)
                 if ply_path is not None:
                     _, _, new_internal_pos, new_dense_pos = fill_particles_gaussian(
@@ -243,8 +243,11 @@ class DeformMasterDataset(Dataset):
                         # [UPDATED] Include scene_id for better tracking in multi-scene training
                         # and removed global flag to print for each scene.
                         print(f"[DeformMaster] Scene: {scene_id} | MPM particles filled from Gaussian data (dense + new internal), pkl={n_pkl}, added={sum(t.shape[0] for t in to_add)}, total={init_pos.shape[0]}")
-            except Exception:
-                pass  # fallback to pkl-only init_pos
+            except Exception as exc:
+                print(
+                    f"[DeformMaster] Scene: {scene_id} | WARNING: Gaussian filling failed; "
+                    f"falling back to PKL particles only: {type(exc).__name__}: {exc}"
+                )
         
         # Ground Truth for Loss Calculation
         # We only have GT tracks for object_points (surface). 
@@ -311,7 +314,7 @@ class DeformMasterDataset(Dataset):
             gs_ply_path = gs_path_override
         elif gaussian_output_dir:
             try:
-                from scripts_training_eval.dynamics.gaussian_filling import get_gaussian_ply_path
+                from .gaussian_filling import get_gaussian_ply_path
                 gs_ply_path = get_gaussian_ply_path(gaussian_output_dir, scene_id)
             except Exception:
                 pass
